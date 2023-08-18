@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Wrestle Universe | toggle comment feed
 // @namespace    https://www.wrestle-universe.com/
-// @version      0.0.1
+// @version      0.1.0
 // @description  Toggle the visibility of comment feed on button click
 // @author       keima
 // @match        https://www.wrestle-universe.com/*/lives/*
