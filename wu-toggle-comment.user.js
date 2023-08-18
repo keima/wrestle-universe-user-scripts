@@ -13,26 +13,32 @@
 (function() {
     'use strict';
 
+    // config
     const BUTTON_TEXT = "💬";
+    const ID_TOGGLE_BUTTON = "toggle-ul-visibility-button";
+    const QUERY_COMMENT_LIST = "ul.space-y-4px.overflow-y-auto";
+
+    const QUERY_COMMENT_FEED_HEADER = 'div.grid.items-center.gap-x-4px.p-12px.grid-cols-\\[1fr\\,auto\\].bg-bg-high-gray.rounded';
+    const COMMENT_FEED_HEADER_CLASSNAME_REPLACED = 'grid items-center gap-x-4px p-12px grid-cols-[auto,1fr,auto] bg-bg-high-gray rounded';
 
     function toggleVisibility() {
-        const ulElement = document.querySelector('ul.space-y-4px.overflow-y-auto.scroll-smooth');
+        const ulElement = document.querySelector(QUERY_COMMENT_LIST);
         if (ulElement) {
             ulElement.style.display = ulElement.style.display === 'none' ? '' : 'none';
         }
     }
 
     function addButton(container) {
-        if (document.getElementById('toggle-ul-visibility-button')) {
+        if (document.getElementById(ID_TOGGLE_BUTTON)) {
+            console.log("button already exists");
             return;
         }
 
         const button = document.createElement('button');
-        button.id = 'toggle-ul-visibility-button';
+        button.id = ID_TOGGLE_BUTTON;
         button.textContent = BUTTON_TEXT;
         button.addEventListener('click', toggleVisibility);
         container.prepend(button);
-        container.className = 'grid items-center gap-x-4px p-12px grid-cols-[auto,1fr,auto] bg-bg-high-gray rounded';
     }
 
     function observeChanges() {
@@ -41,10 +47,11 @@
         const observer = new MutationObserver((mutationsList, observer) => {
             for (const mutation of mutationsList) {
                 if (mutation.type === 'childList') {
-                    const container = document.querySelector('div.grid.items-center.gap-x-4px.p-12px.grid-cols-\\[1fr\\,auto\\].bg-bg-high-gray.rounded');
+                    const container = document.querySelector(QUERY_COMMENT_FEED_HEADER);
                     console.log("observeChanges", container);
                     if (container) {
                         addButton(container);
+                        container.className = COMMENT_FEED_HEADER_CLASSNAME_REPLACED;
                         // observer.disconnect();
                         break;
                     }
