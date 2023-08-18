@@ -1,2 +1,8 @@
 # wrestle-universe-user-scripts
-user script collections applied by wrestle-universe.com
+userscript collections applied by wrestle-universe.com
+
+## toggle comment
+
+[wu-toggle-comment.user.js]
+
+// TODO: video
