@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Toggle comment Visibility
+// @name         Wrestle Universe | toggle comment feed
 // @namespace    https://www.wrestle-universe.com/
 // @version      0.0.1
 // @description  Toggle the visibility of comment feed on button click
@@ -8,6 +8,8 @@
 // @match        https://www.wrestle-universe.com/*/videos/*
 // @grant        none
 // @run-at       document-end
+// @updateURL    https://raw.githubusercontent.com/keima/wrestle-universe-user-scripts/main/wu-toggle-comment.user.js
+// @downloadURL  https://raw.githubusercontent.com/keima/wrestle-universe-user-scripts/main/wu-toggle-comment.user.js
 // ==/UserScript==
 
 (function() {
